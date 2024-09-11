@@ -73,3 +73,8 @@ vim.opt.scrolloff = 10
 
 -- Termstrue colors
 vim.opt.termguicolors = true
+
+-- fold
+vim.opt.foldmethod = 'expr'
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldlevelstart = 99

@@ -13,21 +13,14 @@ return {
     { '<leader>e', ':Neotree toggle<CR>', desc = 'NeoTree toggle', silent = true },
     { '<leader>ee', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
     {
-      '<leader>fE',
-      function()
-        require('neo-tree.command').execute { toggle = true, dir = vim.uv.cwd() }
-      end,
-      desc = 'Explorer NeoTree (cwd)',
-    },
-    {
-      '<leader>ge',
+      '<leader>eg',
       function()
         require('neo-tree.command').execute { source = 'git_status', toggle = true }
       end,
       desc = 'Git Explorer',
     },
     {
-      '<leader>be',
+      '<leader>eb',
       function()
         require('neo-tree.command').execute { source = 'buffers', toggle = true }
       end,

@@ -12,4 +12,11 @@ function M.map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+M.icons = {
+  error = '',
+  warning = '',
+  info = '',
+  hint = '',
+}
+
 return M

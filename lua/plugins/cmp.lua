@@ -1,5 +1,6 @@
 -- Autocompletion
 -- lsp
+
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
@@ -11,6 +12,7 @@ return {
     'hrsh7th/cmp-emoji',
     'hrsh7th/cmp-nvim-lsp-document-symbol',
     'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-buffer',
     'lukas-reineke/cmp-rg',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
@@ -88,16 +90,16 @@ return {
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
       sources = {
-        { name = 'copilot', group_index = 2 },
-        { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
-        { name = 'rg' },
-        { name = 'path' },
-        { name = 'luasnip' },
-        { name = 'emoji' },
-        { name = 'nvim_lsp_document_symbol' },
-        { name = 'nvim_lsp_signature_help' },
-        { name = 'buffer' },
+        { name = 'copilot', group_index = 1 },
+        { name = 'nvim_lsp', group_index = 1 },
+        { name = 'nvim_lsp_document_symbol', group_index = 1 },
+        { name = 'rg', group_index = 1 },
+        { name = 'buffer', group_index = 1 },
+        { name = 'nvim_lua', group_index = 2 },
+        { name = 'nvim_lsp_signature_help', group_index = 2 },
+        { name = 'path', group_index = 2 },
+        { name = 'luasnip', group_index = 2 },
+        { name = 'emoji', group_index = 3 },
         {
           name = 'lazydev',
           -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
@@ -105,5 +107,11 @@ return {
         },
       },
     }
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' },
+      },
+    })
   end,
 }

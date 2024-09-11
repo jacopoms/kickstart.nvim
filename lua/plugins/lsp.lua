@@ -39,9 +39,16 @@ return {
       },
     },
     config = function(_, opts)
+      local utils = require 'config.utils'
       vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
       -- Change diagnostic symbols in the sign column (gutter)
-      local signs = { Error = '󰅚 ', Warn = '󰀪 ', Hint = '󰌶 ', Info = ' ' }
+      -- local signs = { Error = '󰅚 ', Warn = '󰀪 ', Hint = '󰌶 ', Info = ' ' }
+      local signs = {
+        Error = utils.icons.error,
+        Warn = utils.icons.warning,
+        Hint = utils.icons.hint,
+        Info = utils.icons.info,
+      }
       for type, icon in pairs(signs) do
         local hl = 'DiagnosticSign' .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -131,7 +138,7 @@ return {
           --
           -- This may be unwanted, since they displace some of your code
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-            map('<leader>th', function()
+            map('<leader>ch', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
@@ -212,7 +219,9 @@ return {
             },
           },
         },
-        rubocop = {},
+        rubocop = {
+          mason = false,
+        },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
