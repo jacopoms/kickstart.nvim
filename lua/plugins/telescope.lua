@@ -63,7 +63,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       defaults = {
         vimgrep_arguments = {
           'rg',
-          '--color=never',
+          '--color=auto',
           '--no-heading',
           '--with-filename',
           '--line-number',
@@ -100,15 +100,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
         },
       },
       pickers = {
-        find_files = {
-          -- hidden = true,
-        },
-        live_grep = {
-          -- hidden = true,
-        },
-        live_grep_args = {
-          -- hidden = true,
-        },
         buffers = {
           show_all_buffers = true,
           sort_lastused = true,
