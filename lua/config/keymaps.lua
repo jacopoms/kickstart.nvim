@@ -68,3 +68,8 @@ utils.map('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 utils.map('n', '<c-/>', '<cmd>terminal<cr>', { desc = 'Terminal (Root Dir)' })
 -- lazy
 utils.map('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
+-- Swap horizontally splits
+utils.map('n', '<C-w><S-h>', ':windo wincmd H<CR>', { noremap = true })
+
+-- Swap vertically splits
+utils.map('n', '<C-w><S-k>', ':windo wincmd K<CR>', { noremap = true })

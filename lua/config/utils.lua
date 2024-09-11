@@ -13,10 +13,10 @@ function M.map(mode, lhs, rhs, opts)
 end
 
 M.icons = {
-  error = '',
-  warning = '',
-  info = '',
-  hint = '',
+  error = '',
+  warning = '',
+  hint = '',
+  info = '',
 }
 
 return M

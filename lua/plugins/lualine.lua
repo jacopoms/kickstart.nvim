@@ -25,10 +25,16 @@ return {
       },
     },
     sections = {
-      lualine_a = { 'mode' },
+      lualine_a = {
+        {
+          'mode',
+          icons_enabled = true,
+        },
+      },
       lualine_b = {
         'branch',
-        'diff',
+      },
+      lualine_c = {
         {
           'diagnostics',
 
@@ -58,23 +64,57 @@ return {
           update_in_insert = true, -- Update diagnostics in insert mode.
           always_visible = false, -- Show diagnostics even if there are none.
         },
+        { 'filetype', icon_only = true, separator = '', padding = { left = 1, right = 0 } },
+        {
+          'filename',
+          path = 1,
+        },
       },
-      lualine_c = { 'filename' },
-      lualine_x = { 'copilot', 'encoding', 'fileformat', 'filetype' },
-      lualine_y = { 'progress' },
-      lualine_z = { 'location' },
+      lualine_x = {
+        {
+          'copilot',
+          show_colors = true,
+        },
+          -- stylua: ignore
+        {
+          function()
+            return require('noice').api.status.command.get()
+          end,
+          cond = function()
+            return package.loaded['noice'] and require('noice').api.status.command.has()
+          end,
+        },
+        -- stylua: ignore
+        {
+          function() return require("noice").api.status.mode.get() end,
+          cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+        },
+        -- stylua: ignore
+        'encoding',
+        'fileformat',
+        'diff',
+      },
+      lualine_y = {
+        { 'progress', separator = ' ', padding = { left = 1, right = 0 } },
+        { 'location', padding = { left = 0, right = 1 } },
+      },
+      lualine_z = {
+        function()
+          return ' ' .. os.date '%R'
+        end,
+      },
     },
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = { 'filename' },
-      lualine_x = { 'location' },
+      lualine_c = {},
+      lualine_x = {},
       lualine_y = {},
       lualine_z = {},
     },
     tabline = {},
     winbar = {},
     inactive_winbar = {},
-    extensions = {},
+    extensions = { 'neo-tree', 'lazy' },
   },
 }

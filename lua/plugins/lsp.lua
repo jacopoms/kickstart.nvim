@@ -173,8 +173,10 @@ return {
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
-        --
-
+        rubocop = {
+          mason = false,
+          cmd = { 'bundle', 'exec', 'rubocop' },
+        },
         solargraph = {
           mason = false,
           cmd = { 'bundle', 'exec', 'solargraph', 'stdio' },
@@ -201,11 +203,10 @@ return {
             },
           },
         },
-        -- ruby_ls = {
-        --   mason = false,
-        --   cmd = { "ruby-lsp" },
-        --   formatter = "auto",
-        -- },
+        ruby_lsp = {
+          mason = false,
+          cmd = { 'ruby-lsp' },
+        },
         elixirls = {
           mason = false,
           cmd = { '/Users/jacopo/.elixir-ls/release/language_server.sh' },
@@ -218,9 +219,6 @@ return {
               fetchDeps = false,
             },
           },
-        },
-        rubocop = {
-          mason = false,
         },
         lua_ls = {
           -- cmd = {...},
