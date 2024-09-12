@@ -90,16 +90,16 @@ return {
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
       sources = {
-        { name = 'copilot', group_index = 1 },
-        { name = 'nvim_lsp', group_index = 1 },
-        { name = 'nvim_lsp_document_symbol', group_index = 1 },
-        { name = 'rg', group_index = 1 },
-        { name = 'buffer', group_index = 1 },
-        { name = 'nvim_lua', group_index = 2 },
-        { name = 'nvim_lsp_signature_help', group_index = 2 },
-        { name = 'path', group_index = 2 },
-        { name = 'luasnip', group_index = 2 },
-        { name = 'emoji', group_index = 3 },
+        { name = 'copilot' },
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_document_symbol' },
+        { name = 'buffer' },
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'nvim_lua' },
+        { name = 'rg' },
+        { name = 'path' },
+        { name = 'luasnip' },
+        { name = 'emoji' },
         {
           name = 'lazydev',
           -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
