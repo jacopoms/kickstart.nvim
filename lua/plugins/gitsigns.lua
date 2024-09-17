@@ -14,17 +14,17 @@ return {
     gitsigns.setup {
       on_attach = function(bufnr)
         -- Navigation
-        utils.map('n', ']c', function()
+        utils.map('n', ']h', function()
           if vim.wo.diff then
-            vim.cmd.normal { ']c', bang = true }
+            vim.cmd.normal { ']h', bang = true }
           else
             gitsigns.nav_hunk 'next'
           end
         end)
 
-        utils.map('n', '[c', function()
+        utils.map('n', '[h', function()
           if vim.wo.diff then
-            vim.cmd.normal { '[c', bang = true }
+            vim.cmd.normal { '[h', bang = true }
           else
             gitsigns.nav_hunk 'prev'
           end
